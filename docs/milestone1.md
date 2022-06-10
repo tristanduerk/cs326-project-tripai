@@ -7,5 +7,5 @@ The second section titled Application Idea provides a brief paragraph or two des
 The third section titled Functionality provides a brief paragraph or two explaining the functionality provided by your application, how it is used, and how it interacts with the data it maintains.
 
 # Team Name: Tripai
-##
+## Application Name: Weightlifting Planner
 ###
