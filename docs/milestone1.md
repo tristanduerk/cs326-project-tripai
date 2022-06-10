@@ -8,4 +8,5 @@ The third section titled Functionality provides a brief paragraph or two explain
 
 # Team Name: Tripai
 ## Application Name: Weightlifting Planner
-###
+## Team Overview: Team member name: Tristan Duerk. His GitHub username: tristanduerk. This is an individual project.
+## 
