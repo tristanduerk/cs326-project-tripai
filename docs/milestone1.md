@@ -9,4 +9,4 @@ The third section titled Functionality provides a brief paragraph or two explain
 # Team Name: Tripai
 ## Application Name: Weightlifting Planner
 ## Team Overview: Team member name: Tristan Duerk. His GitHub username: tristanduerk. This is an individual project.
-## 
+## Application Idea: My application is a weightlifting planner. It keeps a registry of potential exercises and suggests exercises that go together. It will also have different plan outlines based on different goals that a person can choose. It will track a person's lift history from starting the program, and suggest weight increments to help with progressive overload. Lastly, it will give you procedures for safe lifting (by showing lifting technique and providing the right steps).
