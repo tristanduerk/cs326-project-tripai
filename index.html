@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercise Planner</title>
+
+    <script type="module" src="main.js" defer></script>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div id="inputs">
+      <label for="name">Name: </label><input type="text" id="name" />
+      <select id="exercise">
+        <option value="Bench Press">Bench Press</option>
+        <option value="Back Squat">Back Squat</option>
+        <option value="Deadlift">Deadlift</option>
+      </select>
+      <select id="exercise_goal">
+        <option value="Strength">Strength</option>
+        <option value="Hypertrophy">Hypertrophy</option>
+        <option value="Athleticism">Athleticism</option>
+      </select>
+      <input type="button" value="Success" id="success" />
+      <input type="button" value="Failure" id="failure" />
+    </div>
+    <div id="outputs">
+    </div>
+  </body>
+</html>
