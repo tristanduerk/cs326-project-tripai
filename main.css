@@ -1,0 +1,19 @@
+#inputs {
+    height: 42px;
+    width: 294px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  
+  input[type='number'] {
+    width: 50px;
+  }
+  
+  .center {
+    text-align: center;
+  }
+  
