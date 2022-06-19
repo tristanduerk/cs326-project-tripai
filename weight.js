@@ -50,19 +50,19 @@ export class Weight {
         div = document.createElement('div');
         div.classList.add('exercise-element');
         div.setAttribute('id', 'exercise_weight')
-        div.innerText = this.exerciseElements['weight']; //TODO: Calculate proper weight
+        div.innerText = 'Weight: ' + this.exerciseElements['weight']; //TODO: Calculate proper weight
         element.appendChild(div);
 
         div = document.createElement('div');
         div.classList.add('exercise-element');
         div.setAttribute('id', 'exercise_sets')
-        div.innerText = this.exerciseElements['sets']; //TODO: Change rep scheme based on goals
+        div.innerText = 'Sets: ' + this.exerciseElements['sets']; //TODO: Change rep scheme based on goals
         element.appendChild(div);
 
         div = document.createElement('div');
         div.classList.add('exercise-element');
         div.setAttribute('id', 'exercise_reps')
-        div.innerText = this.exerciseElements['reps']; //TODO: Change rep scheme based on goals
+        div.innerText = 'Reps: ' + this.exerciseElements['reps']; //TODO: Change rep scheme based on goals
         element.appendChild(div);
     }
 
