@@ -8,4 +8,4 @@
 
 ## The first part of the interface is the input section. It has a place to input the individual's name to be stored in local storage. It also has a dropdown menu to pick from (currently) 3 exercises: Bench Press, Back Squat, and Deadlift. It has another dropdown menu to pick between the programs Strength, Hypertrophy, and Athleticism. This currently does not have any functionality. However, later this will change the exercise options as well as the rep scheme. Finally, it has two buttons: Success and Failure. The success button, when clicked, adds 5 pounds to the person's lift, and the Failure button doesn't do anything as of yet, but will subtract 5 pounds from the person's lift. Finally, below it all has the exercise printed out with the weight and rep scheme for the person to follow.
 
-## Link to application running: ![recording](https://drive.google.com/file/d/124KZH55IRU6brp6fCv4mf59MN32j5eqM/view)
+## Link to application running: https://drive.google.com/file/d/124KZH55IRU6brp6fCv4mf59MN32j5eqM/view
