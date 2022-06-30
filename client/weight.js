@@ -55,6 +55,23 @@ export class Weight {
         }
     }
 
+    async saveUser() {
+        let data = {};
+        data['userName'] = this._name;
+        data['goalName'] = this._goal;
+        try {
+            const response = await fetch(`/saveUser`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },  
+              body: JSON.stringify(data)
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     async loadExercise() {
         try {
             const url = (
