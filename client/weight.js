@@ -59,6 +59,7 @@ export class Weight {
         let data = {};
         data['userName'] = this._name;
         data['goalName'] = this._goal;
+        console.log("SENDING", data);
         try {
             const response = await fetch(`/saveUser`, {
               method: 'POST',

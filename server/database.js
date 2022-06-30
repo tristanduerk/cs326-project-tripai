@@ -14,10 +14,12 @@ class Database {
 
   async saveUser(userName, goalName) {
     const data = await this._read();
-    user = {};
-    user['name'] = user;
+    console.log("save user", userName, goalName, data);
+    let user = {};
+    user['name'] = userName;
     user['goal'] = goalName;
-    data.users.push(data);
+    data.users.push(user);
+    console.log("save user", userName, goalName, user, data);
     await this._write(data);
   }
 

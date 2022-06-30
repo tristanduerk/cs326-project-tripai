@@ -32,7 +32,7 @@ app.get('/loadExercise', async (request, response) => {
 
 app.post('/saveUser', async (request, response) => {
   const options = request.body;
-  await database.saveExercise(options.userName, options.goalName);
+  await database.saveUser(options.userName, options.goalName);
   response.status(200).json({ 'status' : 'success' });
 });
 
