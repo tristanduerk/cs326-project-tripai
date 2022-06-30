@@ -12,6 +12,15 @@ class Database {
     await this._write(data);
   }
 
+  async saveUser(userName, goalName) {
+    const data = await this._read();
+    user = {};
+    user['name'] = user;
+    user['goal'] = goalName;
+    data.users.push(data);
+    await this._write(data);
+  }
+
   async loadExercise(exerciseName) {
     const data = await this._read();
     const exerciseElements = data.exercises[exerciseName];
@@ -25,26 +34,30 @@ class Database {
       const data = await readFile(this.path, 'utf8');
       return JSON.parse(data);
     } catch (error) {
-      return { exercises: {
-        'Bench Press': {
-          'weight': 45,
-          'sets': 3,
-          'reps': 5,
-          'success': true
-        },
-        'Back Squat': {
-          'weight': 45,
-          'sets': 3,
-          'reps': 5,
-          'success': true
-        },
-        'Deadlift': {
-          'weight': 45,
-          'sets': 3,
-          'reps': 5,
-          'success': true
-        }
-      }, goals: ['Strength', 'Hypertrophy', 'Athleticism'] };
+      return { 
+        exercises: {
+          'Bench Press': {
+            'weight': 45,
+            'sets': 3,
+            'reps': 5,
+            'success': true
+          },
+          'Back Squat': {
+            'weight': 45,
+            'sets': 3,
+            'reps': 5,
+            'success': true
+          },
+          'Deadlift': {
+            'weight': 45,
+            'sets': 3,
+            'reps': 5,
+            'success': true
+          }
+        }, 
+        goals: ['Strength', 'Hypertrophy', 'Athleticism'],
+        users: []
+      };
     }
   }
 
