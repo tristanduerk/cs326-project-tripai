@@ -1,43 +1,82 @@
 export class Weight {
     constructor() {
-        this.exercise = "Bench Press";
-        this.exerciseGoal = "Strength";
+        this._name = 'Default';
+        this._exercise = 'Bench Press';
+        this._goal = 'Strength';
     }
 
-    set exercise(exercise) {
-        this._exercise = exercise;
+    get name() {
+        return this._name;
+    }
+    
+    set name(name) {
+        this._name = name;
     }
 
     get exercise() {
         return this._exercise;
-    } 
+    }
     
-    saveExercise(success) {
-        this.exerciseElements['success'] = success;
-        let suggestedWeight = parseFloat(this.exerciseElements['weight']) + 5.0;
-        this.exerciseElements['weight'] = suggestedWeight;
-        localStorage.setItem(this._exercise, JSON.stringify(this.exerciseElements));
+    set exercise(exercise) {
+        this._exercise = exercise;
     }
 
-    _loadExercise() {
-        const data = localStorage.getItem(this._exercise);
-        if (data === null || data == 'undefined') {
-            //TODO: If  not exist, use defaults
-            this.exerciseElements = {};
-            this.exerciseElements['weight'] = 45;
-            this.exerciseElements['sets'] = 3;
-            this.exerciseElements['reps'] = 5;
-            this.exerciseElements['success'] = 'true';
-            localStorage.setItem(this._exercise, JSON.stringify(this.exerciseElements));
+    get goal() {
+        return this._goal;
+    }
+
+    set goal(goal) {
+        this._goal = goal;
+    }
+
+    async saveExercise(success) {
+        this._exerciseElements['success'] = success;
+        let suggestedWeight = parseFloat(this._exerciseElements['weight']);
+        if (success == 'true') {
+            suggestedWeight += 5;
         } else {
-            this.exerciseElements = JSON.parse(data);
+            suggestedWeight -= 5;
         }
+        this._exerciseElements['weight'] = suggestedWeight;
 
+        let data = {};
+        data['exerciseName'] = this._exercise;
+        data['exerciseElements'] = this._exerciseElements;
+        try {
+            const response = await fetch(`/saveExercise`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },  
+              body: JSON.stringify(data)
+            });
+        } catch (err) {
+            console.log(err);
+        }
     }
 
-    render(element) {
+    async loadExercise() {
+        try {
+            const url = (
+                `/loadExercise?` + 
+                new URLSearchParams({name: this._exercise }).toString()
+            );
+            const response = await fetch(url, 
+            {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+              }
+            });
+            this._exerciseElements = await response.json();
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
-        this._loadExercise();
+    async render(element) {
+
+        await this.loadExercise();
 
         element.innerHTML = '';
         
@@ -50,21 +89,20 @@ export class Weight {
         div = document.createElement('div');
         div.classList.add('exercise-element');
         div.setAttribute('id', 'exercise_weight')
-        div.innerText = 'Weight: ' + this.exerciseElements['weight']; //TODO: Calculate proper weight
+        div.innerText = 'Weight: ' + this._exerciseElements['weight']; //TODO: Calculate proper weight
         element.appendChild(div);
 
         div = document.createElement('div');
         div.classList.add('exercise-element');
         div.setAttribute('id', 'exercise_sets')
-        div.innerText = 'Sets: ' + this.exerciseElements['sets']; //TODO: Change rep scheme based on goals
+        div.innerText = 'Sets: ' + this._exerciseElements['sets']; //TODO: Change rep scheme based on goals
         element.appendChild(div);
 
         div = document.createElement('div');
         div.classList.add('exercise-element');
         div.setAttribute('id', 'exercise_reps')
-        div.innerText = 'Reps: ' + this.exerciseElements['reps']; //TODO: Change rep scheme based on goals
+        div.innerText = 'Reps: ' + this._exerciseElements['reps']; //TODO: Change rep scheme based on goals
         element.appendChild(div);
     }
-
 
 }
