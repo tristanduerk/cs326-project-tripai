@@ -28,11 +28,13 @@ successElement.addEventListener('click', () => {
 
   exerciseGoalElement.addEventListener('click', () => {
     weight.goal = exerciseGoalElement.value;
+    weight.saveUser();
     weight.render(outputElement);
   });
 
   nameElement.addEventListener('change', (event) => {
     weight.name = nameElement.value;
+    weight.saveUser();
   });
 
 
