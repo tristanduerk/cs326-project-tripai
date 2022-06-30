@@ -30,6 +30,12 @@ app.get('/loadExercise', async (request, response) => {
     .json(exerciseElements);
 });
 
+app.post('/saveUser', async (request, response) => {
+  const options = request.body;
+  await database.saveExercise(options.userName, options.goalName);
+  response.status(200).json({ 'status' : 'success' });
+});
+
 // This matches all routes that are not defined.
 app.all('*', async (request, response) => {
   response.status(404).send(`Not found: ${request.path}`);
