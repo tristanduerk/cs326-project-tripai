@@ -19,9 +19,7 @@ app.post('/saveExercise', async (request, response) => {
 
 app.get('/loadExercise', async (request, response) => {
   const name = request.query.name;
-  console.log("IN GET ", name)
   const exerciseElements = await database.loadExercise(name);
-  console.log(exerciseElements);
   response
     .status(200)
     .header({
