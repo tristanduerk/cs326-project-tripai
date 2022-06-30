@@ -27,7 +27,12 @@ successElement.addEventListener('click', () => {
   });
 
   exerciseGoalElement.addEventListener('click', () => {
-    //TODO: Based on what exercise goal they have, create an exercise plan for the person
+    weight.goal = exerciseGoalElement.value;
+    weight.render(outputElement);
+  });
+
+  nameElement.addEventListener('change', (event) => {
+    weight.name = nameElement.value;
   });
 
 
